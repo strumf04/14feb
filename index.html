@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samo za Milicu</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            width: 200px;
+        }
+        #question {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        #yes, #no {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+        }
+        #no {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="images/milojko1.jpg" alt="Cute Bunny"> 
+    <p id="question"><b>Milice</b>, Will you be my Valentine?</p>
+    
+    <button id="yes" onclick="accept()">Yes</button>
+    <button id="no" onclick="decline()">No</button>
+
+    <script>
+        let noButton = document.getElementById("no");
+        let yesButton = document.getElementById("yes");
+        let question = document.getElementById("question");
+        let noText = ["No", "Šta bre ne"];
+        let noClickCount = 0;
+
+        function decline() {
+            noClickCount++;
+            if (noClickCount < noText.length) {
+                noButton.innerText = noText[noClickCount];
+            } else {
+                yesButton.style.fontSize = "50px"; // Povećava dugme
+                yesButton.style.padding = "30px 60px";
+                noButton.style.display = "none"; // Sakriva "No" dugme
+            }
+        }
+
+        function accept() {
+            document.body.innerHTML = `
+                <p style="font-size: 24px;">Vidimo se 14. februara :))</p>
+                <img src="images/drugaslika.jpg" alt="New Image">
+            `;
+        }
+    </script>
+
+</body>
+</html>
